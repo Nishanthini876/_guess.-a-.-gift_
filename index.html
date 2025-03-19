@@ -14,7 +14,8 @@
   <main>
     <div style="margin: 30px auto; max-width: 400px; padding: 20px; border: 2px solid #ff6f61; border-radius: 10px; background-color: #1e1e1e;">
       <h2 style="color: #ffd700;">Make a Guess!</h2>
-      <form>
+      <!-- Form with action to display feedback -->
+      <form onsubmit="revealMessage(); return false;">
         <label for="guess" style="display: block; margin-bottom: 10px;">Type your guess below:</label>
         <input type="text" id="guess" name="guess" placeholder="e.g., A toy, A book..." style="padding: 10px; border-radius: 5px; border: none; width: 80%; margin-bottom: 20px;">
         <br>
@@ -23,12 +24,31 @@
     </div>
     <div id="reveal" style="margin-top: 40px; display: none; padding: 20px; border: 2px solid #ffd700; border-radius: 10px; background-color: #252525;">
       <h3 style="color: #7fffd4;">What's inside the box?</h3>
-      <p style="font-size: 1.2em;">🎉 It's a lifetime supply of happiness and laughter! 🎉</p>
+      <p id="message" style="font-size: 1.2em;">🎉 It's a surprise! 🎉</p>
     </div>
   </main>
 
   <footer style="margin-top: 50px; background-color: #333333; color: #ffffff; padding: 20px;">
     <p>© 2025 Mystery Box Inc. | Dare to Guess!</p>
   </footer>
+
+  <script>
+    function revealMessage() {
+      // Get the user's guess
+      const userGuess = document.getElementById("guess").value;
+
+      // Show the "reveal" section
+      const revealSection = document.getElementById("reveal");
+      revealSection.style.display = "block";
+
+      // Set a fun response based on the user's guess
+      const message = document.getElementById("message");
+      if (userGuess.toLowerCase() === "happiness") {
+        message.textContent = "🎉 You're absolutely correct! It's happiness! 🎉";
+      } else {
+        message.textContent = `🤔 Hmm... ${userGuess}? Not quite, but close enough! It's happiness and laughter! 🎉`;
+      }
+    }
+  </script>
 </body>
 </html>
