@@ -45,7 +45,19 @@
       const message = document.getElementById("message");
       if (userGuess.toLowerCase() === "happiness") {
         message.textContent = "🎉 You're absolutely correct! It's happiness! 🎉";
-      } else {
+      }
+      else if (userGuess.toLowerCase() === "joy") {
+        message.textContent = "🎉 You're absolutely correct! It's joy! 🎉";
+      }
+      else if (userGuess.toLowerCase() === "sadness") {
+        message.textContent = "🎉 You're absolutely correct! It's sadness! 🎉";
+      }
+      else if (userGuess.toLowerCase() === "candy") {
+        message.textContent = "🎉 You're absolutely correct! It's candy! 🎉";
+      }
+     else if (userGuess.toLowerCase() === "punch ur frd") {
+        message.textContent = "🎉 You're absolutely correct! It's punch ur frd! 🎉";
+      }else {
         message.textContent = `🤔 Hmm... ${userGuess}? Not quite, but close enough! It's happiness and laughter! 🎉`;
       }
     }
